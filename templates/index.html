@@ -55,9 +55,15 @@
                     <div>
                         <select class="location w-[100%] p-2 rounded-sm" name="location" id="uiLocations">
                             <option value="" disabled selected>Choose a Location</option>
+                           
+                            {% if locations %}
                             {% for item in locations %}
-                                <option value="{{ item }}">{{ item }}</option>
+                            <option value="{{ item }}">{{ item }}</option>
+
                             {% endfor %}
+                            {% else %}
+                            
+                            {% endif %}
                         </select>
                     </div>
 
@@ -68,7 +74,7 @@
                     <!-- Display the estimated price if available -->
                     <div id="uiEstimatedPrice" class="result mt-4">
                         {% if estimated_price %}
-                            <h2 class="text-3xl text-center">{{ estimated_price }} Lakh</h2>
+                        <h2 class="text-3xl text-center">{{ estimated_price }} Lakh</h2>
                         {% endif %}
                     </div>
                 </form>

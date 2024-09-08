@@ -7,6 +7,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     locations = util.get_location_names()
+    if locations is None:
+        locations = []
     return render_template('index.html',locations=locations)
 
 @app.route('/get_location_names', methods=['GET'])
